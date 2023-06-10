@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class Cachorro implements Serializable{
     private String nome;
-    private String cor;
     private int idade;
+    private String cor;
     private String raca;
-    private String status;
+    
     private ArrayList <Cachorro> caes;
 
 
@@ -18,14 +18,10 @@ public class Cachorro implements Serializable{
         this.cor = cor;
         this.idade = idade;
         this.raca = raca;
-        this.status = status;
     }
     
  //metodos getters and setters
-   public String getStatus (){
-    return status;
-   } 
-   
+
     public String getNome() {
         return nome;
     }

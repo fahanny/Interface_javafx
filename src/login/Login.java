@@ -4,12 +4,14 @@ import java.io.Serializable;
 import data.DataUsuario;
 
 public class Login implements Serializable {
-    String email;
-    String senha;
+    private String email;
+    private String senha;
+    private String nome;
 
-    public Login(String email, String senha) {
+    public Login(String email, String senha, String nome) {
         this.email = email;
         this.senha = senha;
+        this.nome = nome;
     }
 
     public String getSenha() {

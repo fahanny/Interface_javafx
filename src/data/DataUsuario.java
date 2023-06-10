@@ -22,7 +22,7 @@ public class DataUsuario {
         try {
             listaUsuario = listarUsuario();
         } catch (FileNotFoundException e) {
-            File arquivo = new File("dados/user.ser");
+            File arquivo = new File("user.ser");
             try {
                 arquivo.createNewFile();
             } catch (IOException x) {
@@ -33,7 +33,7 @@ public class DataUsuario {
         try {
             listaUsuario.add(Usuario);
 
-            File endereco = new File("dados/user.ser");
+            File endereco = new File("user.ser");
             FileOutputStream fluxo = new FileOutputStream(endereco);
             ObjectOutputStream oos = new ObjectOutputStream(fluxo);
             System.out.println("parte 2");

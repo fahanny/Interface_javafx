@@ -1,30 +1,23 @@
 package controller;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import data.DataUsuario;
-import login.*;
+import login.Login;
 
 public class ControleUsuario {
     private ArrayList<Login> login = new ArrayList<>();
 
-    public void cadastrarUsuario(String email, String senha) {
-        Login log = new Login(email, senha);
-        log.cadastrarLogin(log);
-        login.add(new Login(email, senha));
+    public void cadastrarUsuario(String nome, String senha, String email) {
+        Login log = new Login(nome, senha, email);
+        login.add(new Login(nome, senha, email));
     }
 
-    public ArrayList<Login> listarUsuario() throws FileNotFoundException, IOException, ClassNotFoundException {
-        DataUsuario logDados = new DataUsuario();
-        ArrayList<Login> lista = logDados.listarUsuario();
-        return lista;
+    public ArrayList<Login> listarUsuario() {
+        return login;
     }
 
-    public Login pesquisarLogin(String email) throws IOException, FileNotFoundException, ClassNotFoundException {
-        ArrayList<Login> listLogin = listarUsuario();
-        for (Login l: listLogin) {
+    public Login pesquisarLogin(String email) {
+        for (Login l : login) {
             if (email.equals(l.getEmail())) {
                 return l;
             }
@@ -32,10 +25,9 @@ public class ControleUsuario {
         return null;
     }
 
-    public boolean loginUsuario(String email, String senha)
-            throws FileNotFoundException, IOException, ClassNotFoundException {
+    public boolean loginUsuario(String email, String senha) {
         Login login = pesquisarLogin(email);
-        if (login.getSenha().equals(senha)) {
+        if (login != null && login.getSenha().equals(senha)) {
             return true;
         } else {
             return false;
